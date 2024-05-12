@@ -9,18 +9,16 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        package-to-scan: com.javanautas.fakeapius.infrastructure.entities
+        package-to-scan: com.mv.fakeapius.infrastructure.entities
         format_sql: true
         dialect: org.hibernate.dialect.PostgreSQLDialect
-
-fake-api:
-  url: https://fakestoreapi.com
-
-spring:
   cloud:
     loadbalancer:
       ribbon:
         enable: true
+
+fake-api:
+  url: https://fakestoreapi.com
 
 server:
   port: 8181
