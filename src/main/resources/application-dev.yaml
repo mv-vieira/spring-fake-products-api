@@ -1,3 +1,18 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/fake-api-products
+    username: postgres
+    password: 120619
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        package-to-scan: com.javanautas.fakeapius.infrastructure.entities
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
 fake-api:
   url: https://fakestoreapi.com
 
