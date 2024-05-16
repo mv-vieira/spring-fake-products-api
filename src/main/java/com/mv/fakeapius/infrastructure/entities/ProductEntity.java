@@ -30,9 +30,9 @@ public class ProductEntity {
     private BigDecimal price;
     @Column(name = "category")
     private String category;
-    @Column(name = "description")
+    @Column(name = "description", length = 1000)
     private String description;
-    @Column(name = "image")
+    @Column(name = "image", length = 1000)
     private String image;
     @Column(name = "date")
     private LocalDateTime inclusionDate;

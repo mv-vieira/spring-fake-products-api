@@ -25,11 +25,11 @@ public class FakeApiService {
                         if(existsTitle.equals(false)){
                             service.saveProduct(converter.toEntity(product));
                         }
-                        throw new RuntimeException("Product already registered in the database: " + product.getTitle());
                     }
             );
 
             return converter.toListDTO(service.findAllProduct());
+
         } catch (Exception e){
             throw new RuntimeException("Error when searching and saving products in the database");
         }

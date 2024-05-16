@@ -11,7 +11,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private ProductRepository repository;
+    private final ProductRepository repository;
 
 
     public ProductEntity saveProduct(ProductEntity product){
