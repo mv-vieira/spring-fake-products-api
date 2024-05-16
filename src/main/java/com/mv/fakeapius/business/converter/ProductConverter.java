@@ -5,6 +5,7 @@ import com.mv.fakeapius.infrastructure.entities.ProductEntity;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
@@ -32,5 +33,9 @@ public class ProductConverter {
                 .price(entity.getPrice())
                 .image(entity.getImage())
                 .build();
+    }
+
+    public List<ProductsDTO> toListDTO(List<ProductEntity> entityList){
+        return entityList.stream().map(this::toDTO).toList();
     }
 }

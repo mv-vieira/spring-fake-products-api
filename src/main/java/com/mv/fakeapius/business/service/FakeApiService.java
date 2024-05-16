@@ -17,8 +17,22 @@ public class FakeApiService {
     private final ProductService service;
 
     public List<ProductsDTO> findAllProducts(){
-        List<ProductsDTO> dto = client.findAllProducts();
-        dto.forEach(product -> service.saveProduct(converter.toEntity(product)));
-        return dto;
+        try {
+            List<ProductsDTO> dto = client.findAllProducts();
+            dto.forEach(product -> {
+                        Boolean existsTitle =  service.existsByTitle(product.getTitle());
+
+                        if(existsTitle.equals(false)){
+                            service.saveProduct(converter.toEntity(product));
+                        }
+                        throw new RuntimeException("Product already registered in the database: " + product.getTitle());
+                    }
+            );
+
+            return converter.toListDTO(service.findAllProduct());
+        } catch (Exception e){
+            throw new RuntimeException("Error when searching and saving products in the database");
+        }
+
     }
 }

@@ -29,4 +29,12 @@ public class ProductService {
             throw new RuntimeException("Error when performing data search");
         }
     }
+
+    public Boolean existsByTitle(String title){
+        try{
+            return repository.existsByTitle(title);
+        } catch (Exception e){
+            throw new RuntimeException("Error when searching for product with title: " + title);
+        }
+    }
 }
