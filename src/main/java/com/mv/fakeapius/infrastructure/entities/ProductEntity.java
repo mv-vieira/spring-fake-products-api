@@ -8,6 +8,7 @@ import jakarta.persistence.Table;
 import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity(name = "ProductEntity")
@@ -33,4 +34,6 @@ public class ProductEntity {
     private String description;
     @Column(name = "image")
     private String image;
+    @Column(name = "date")
+    private LocalDateTime inclusionDate;
 }
